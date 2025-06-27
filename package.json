@@ -1,0 +1,22 @@
+{
+    "scripts": {
+        "test": "npx playwright test --reporter=line,allure-playwright",
+        "test:full": "npm run test && npm run report",
+        "generate-report": "allure generate allure-results -o allure-report --clean",
+        "open-report": "allure open allure-report",
+        "report": "node scripts/report.js",
+        "open-latest": "allure open allure-history/latest",
+        "list-reports": "ls -l allure-reports"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.50.1",
+        "allure-commandline": "^2.32.2",
+        "allure-playwright": "^3.2.0"
+    },
+    "dependencies": {
+        "@sentry/node": "^9.1.0",
+        "@sentry/tracing": "^7.120.3",
+        "allure-playwright": "^3.2.0",
+        "archiver": "^7.0.1"
+    }
+}

@@ -1,0 +1,31 @@
+################################
+# Allure测试报告配置
+################################
+
+allure:
+  report:
+    language: zh
+    # 问题追踪系统模板
+    tmsPattern: 'https://example.org/tms/{}'
+    issuePattern: 'https://example.org/issue/{}'
+  logo:
+    enabled: true
+    url: https://example.org/logo.png
+  environment:
+    include:
+      - OS  # 操作系统信息
+      - NodeVersion  # Node.js版本
+      - Browser
+  attachments:
+    include:
+      - .*/screenshots/.*  # 包含所有截图
+      - .*/traces/.*
+    exclude:
+      - .*.log  # 排除日志文件
+  categories:
+    - name: 元素定位问题  # 自定义错误分类
+      messageRegex: .*locator.*
+      matchedStatuses: [failed]
+    - name: 网络问题
+      messageRegex: .*net::ERR_.*
+      matchedStatuses: [failed] 
